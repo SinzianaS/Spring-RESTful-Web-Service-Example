@@ -11,10 +11,16 @@ public class GreetingController {
 	public String index() {
 		return "hello!";
 	}
-	
-	
+	/*
+	@GetMapping("/greeting")
 	public Greeting greeting() {
 		return new Greeting(1, "greetings!");
+		
+	}
+ */
+	@GetMapping("/greeting")
+	public Greeting greeting(@RequestParam(value = "name", defaultValue = "stranger") String name) {
+		return new Greeting(1, "greetings, " + name + "!");
 		
 	}
 
